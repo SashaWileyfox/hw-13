@@ -1,0 +1,173 @@
+@import url(reset.css);
+
+.container {
+    background: url(../pictures/bg\ 1.png) fixed no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(22, 21, 21, 0.50);
+}
+
+.wrap-form {
+    max-width: 496px;
+    height: 100%;
+    margin-left: auto;
+    background: rgba(233, 233, 233, 0.25);
+    backdrop-filter: blur(5px);
+    color: #fff;
+}
+
+.content {
+    margin: 0 auto;
+    max-width: 340px;
+    padding-top: 60px;
+}
+
+.switch-inner {
+    margin-bottom: 75px;
+}
+
+.switch-inner input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.switch-inner input+label {
+    display: inline-block;
+    position: relative;
+    width: 340px;
+    height: 36px;
+    outline: 1px solid #153416;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.switch-inner input+label::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 168px;
+    height: 32px;
+    background-color: #153416;
+    border-radius: 30px;
+    transition: 3s;
+}
+
+.switch-inner input:checked+label::before {
+    transform: translateX(100%);
+}
+
+.switch-inner span {
+    position: relative;
+}
+
+
+
+
+/* -------------------------- */
+
+.login-form{
+    margin-bottom: 40px;
+}
+.login-date{
+    margin-bottom: 21px;
+    color: #fff;
+}
+.login-form h1 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 29px;
+}
+
+.login-date input {
+    width: 100%;
+    height: 44px;
+    padding-left: 20px;
+    border-radius: 30px;
+    background: #929191;
+    border: none;
+    outline: none;
+}
+
+.login-date>input:first-child {
+    margin-bottom: 15px;
+}
+
+.login-date input::placeholder {
+    font-size: 12px;
+    color: #fff;
+}
+
+.checkbox-link{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.remember_me-link {
+    position: relative;
+    white-space: nowrap;
+}
+
+.remember_me-link input[type="checkbox"] {
+   position: absolute;
+   z-index: -1;
+   opacity: 0;
+}
+
+.remember_me-link input[type="checkbox"] + label {
+    display: inline-block;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    font-size: 12px;
+    border-radius: 2px;
+    border: 1px solid #D9D9D9;
+    cursor: pointer;
+}
+.remember_me-link input[type="checkbox"] + label::before{
+    content: "";
+    padding-right: 25px;
+}
+
+.forgot-password{
+    font-size: 12px;
+    color: #153416;
+    text-decoration: underline;
+}
+
+button[type="submit"]{
+    width: 100%;
+    height: 44px;
+    border-radius: 30px;
+    background-color: #153416;
+    color: #fff;
+    outline: none;
+    border: none;
+}
+
+.reg-links{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.green-link{
+    color: #153416;
+}
+.white-link{
+    color: #fff;
+    text-decoration: underline;
+}
