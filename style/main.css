@@ -1,16 +1,31 @@
 @import url(reset.css);
 
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular.woff2') format('woff2'),
+        url('../fonts/Roboto-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+.sprite {
+    display: none;
+}
+
 .container {
-    background: url(../pictures/bg\ 1.png) fixed no-repeat;
-    background-size: cover;
+    position: relative;
+    background: url('../pictures/bg.png') center/cover no-repeat;
     height: 100vh;
+    overflow: hidden;
 }
 
 .container::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     background: rgba(22, 21, 21, 0.50);
@@ -22,13 +37,16 @@
     margin-left: auto;
     background: rgba(233, 233, 233, 0.25);
     backdrop-filter: blur(5px);
+    font-family: 'Roboto';
+    font-size: 12px;
     color: #fff;
+    overflow: auto;
 }
 
 .content {
     margin: 0 auto;
     max-width: 340px;
-    padding-top: 60px;
+    padding: 60px 0;
 }
 
 .switch-inner {
@@ -42,9 +60,11 @@
 }
 
 .switch-inner input+label {
-    display: inline-block;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     position: relative;
-    width: 340px;
+    width: 100%;
     height: 36px;
     outline: 1px solid #153416;
     border-radius: 30px;
@@ -56,18 +76,19 @@
     position: absolute;
     top: 2px;
     left: 2px;
-    width: 168px;
-    height: 32px;
+    bottom: 2px;
+    width: 50%;
     background-color: #153416;
     border-radius: 30px;
-    transition: 3s;
+    transition: 0.3s linear;
+    cursor: pointer;
 }
 
 .switch-inner input:checked+label::before {
-    transform: translateX(100%);
+    left: calc(50% - 2px);
 }
 
-.switch-inner span {
+.switch-inner label span {
     position: relative;
 }
 
@@ -76,13 +97,15 @@
 
 /* -------------------------- */
 
-.login-form{
+
+.login-form {
     margin-bottom: 40px;
 }
-.login-date{
+
+.login-date {
     margin-bottom: 21px;
-    color: #fff;
 }
+
 .login-form h1 {
     font-size: 30px;
     text-align: center;
@@ -91,12 +114,15 @@
 
 .login-date input {
     width: 100%;
-    height: 44px;
-    padding-left: 20px;
+    padding: 14px 20px;
     border-radius: 30px;
     background: #929191;
     border: none;
     outline: none;
+}
+
+.login-date input:focus {
+    box-shadow: inset 0 0 20px 0px #fff;
 }
 
 .login-date>input:first-child {
@@ -104,52 +130,65 @@
 }
 
 .login-date input::placeholder {
+    font-family: 'Roboto';
     font-size: 12px;
     color: #fff;
 }
 
-.checkbox-link{
+.checkbox-link {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
 }
+
 .remember_me-link {
     position: relative;
     white-space: nowrap;
 }
 
 .remember_me-link input[type="checkbox"] {
-   position: absolute;
-   z-index: -1;
-   opacity: 0;
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
 }
 
-.remember_me-link input[type="checkbox"] + label {
+.remember_me-link input[type="checkbox"]+label {
     display: inline-block;
     position: relative;
-    top: 0;
-    left: 0;
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    font-size: 12px;
-    border-radius: 2px;
-    border: 1px solid #D9D9D9;
+    padding-left: 25px;
     cursor: pointer;
 }
-.remember_me-link input[type="checkbox"] + label::before{
+
+.remember_me-link input[type="checkbox"]+label::before {
     content: "";
-    padding-right: 25px;
+    position: absolute;
+    inset: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 2px;
+    border: 1px solid #D9D9D9;
 }
 
-.forgot-password{
+.remember_me-link input[type="checkbox"]:checked+label::before {
+    border: #153416;
+    background: #153416 url('../pictures/check-point.svg') no-repeat center;
+}
+
+/* .remember_me-link input[type="checkbox"]:checked + label::after{
+    content: "";
+    border-bottom: 2px solid #fff;
+    transform: rotate(38deg);
+} */
+
+
+.forgot-password {
     font-size: 12px;
     color: #153416;
     text-decoration: underline;
 }
 
-button[type="submit"]{
+button[type="submit"] {
     width: 100%;
     height: 44px;
     border-radius: 30px;
@@ -157,17 +196,41 @@ button[type="submit"]{
     color: #fff;
     outline: none;
     border: none;
+    cursor: pointer;
 }
 
-.reg-links{
+.reg-links {
     display: flex;
     justify-content: center;
     gap: 15px;
+    margin-bottom: 30px;
 }
-.green-link{
+
+.green-link {
     color: #153416;
 }
-.white-link{
+
+.white-link {
     color: #fff;
     text-decoration: underline;
+}
+
+.login-with {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social a {
+    display: block;
+}
+
+.icon-login {
+    width: 24px;
+    height: 24px;
 }
